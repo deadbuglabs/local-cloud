@@ -1,0 +1,15 @@
+[Unit]
+Description=Deadbug Local Cloud - IMP-VISION app v0.10.3
+After=network.target local-cloud-llama.service
+
+[Service]
+WorkingDirectory=/home/hatch/local-cloud/app
+Environment=IMP_VISION_MODELS=/home/hatch/local-cloud/models
+ExecStart=/home/hatch/workspace/cadvenv/bin/python app.py
+Restart=always
+RestartSec=5
+StandardOutput=append:/home/hatch/local-cloud/logs/app.log
+StandardError=append:/home/hatch/local-cloud/logs/app.log
+
+[Install]
+WantedBy=multi-user.target

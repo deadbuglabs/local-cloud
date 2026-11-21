@@ -1,0 +1,6 @@
+:5001 {
+	basic_auth {
+		trevor $2a$14$n37Muu8kPHpveR88Fvvst.SzKTBMWBzOCF5G9Ez1tLuk2Mw6PXTsm
+	}
+	reverse_proxy 127.0.0.1:5000
+}

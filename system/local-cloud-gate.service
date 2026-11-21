@@ -1,0 +1,14 @@
+[Unit]
+Description=Deadbug Local Cloud - Caddy basic-auth gate (:5001 -> app :5000)
+After=network.target local-cloud-app.service
+
+[Service]
+WorkingDirectory=/home/hatch/local-cloud
+ExecStart=/home/hatch/local-cloud/bin/caddy run --config /home/hatch/local-cloud/Caddyfile
+Restart=always
+RestartSec=5
+StandardOutput=append:/home/hatch/local-cloud/logs/caddy.log
+StandardError=append:/home/hatch/local-cloud/logs/caddy.log
+
+[Install]
+WantedBy=multi-user.target

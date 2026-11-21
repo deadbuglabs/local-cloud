@@ -1,0 +1,13 @@
+[Unit]
+Description=Deadbug Local Cloud - llama-server Brain (Qwen2.5-1.5B Q4_K_M)
+After=network.target
+
+[Service]
+ExecStart=/home/hatch/local-cloud/bin/llama-b12359/llama-server -m /home/hatch/local-cloud/models/brain/Qwen__Qwen2.5-1.5B-Instruct-GGUF/qwen2.5-1.5b-instruct-q4_k_m.gguf -c 1024 -t 2 --port 8080
+Restart=always
+RestartSec=5
+StandardOutput=append:/home/hatch/local-cloud/logs/llama.log
+StandardError=append:/home/hatch/local-cloud/logs/llama.log
+
+[Install]
+WantedBy=multi-user.target
